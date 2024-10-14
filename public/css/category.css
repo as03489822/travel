@@ -1,0 +1,139 @@
+
+.containers{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem 0rem 1rem;
+  }
+      
+    .slider{
+        position: relative;
+
+    }
+    .slider::-webkit-scrollbar{
+        display: none;
+    }
+    .arrow{
+        background-color: black;
+        position:absolute;
+        top: 0;
+        height: 100%;
+        width: 3rem;
+        display: flex;
+        align-items: center;
+    }
+
+     .left {
+        left: 0;
+        display: none;
+        justify-content: start;
+        background:  linear-gradient(90deg, #ffffff 70%, transparent );
+        z-index: 1;
+    }
+     .right {
+        right: 0;
+        display: none;
+        justify-content: end;
+        background:  linear-gradient(-90deg, #ffffff 70%, transparent );
+        z-index: 1;
+    }
+    .active{
+        display: flex;
+    }
+    .sliderTabs{
+        display: flex;
+        margin: 1.5rem 0rem;
+        gap: 1.5rem;
+        /* overflow-x: hidden; */
+        scroll-behavior: smooth;
+        overflow-x  : scroll;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+.arrow i {
+    text-align: center;
+    line-height: 2rem;
+    border: 1px solid rgb(168, 168, 168);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    cursor: pointer;
+    
+}
+.arrow i:hover{
+    box-sizing: content-box;
+    border: 2px solid rgb(168, 168, 168);
+    box-shadow: 0px 0px 5px rgb(168, 168, 168);
+}
+
+    .icon{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* margin: 1rem 1.5rem; */
+        justify-content: center;
+        cursor: pointer;
+        opacity: .6;
+    }
+    .icon:hover{
+        opacity: .9;
+    }
+    .icon i{
+        font-size: 1.3rem;
+    }
+    .icon  p{
+        font-weight: bolder;
+        font-size: .8rem;
+        margin: 0px;
+        white-space: nowrap;
+    }
+    .sliderTabs  a {
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+    }
+    .info-tax {
+        display: none;
+    }
+    
+
+
+    .taxSwitch{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgb(207, 207, 207);
+        width :270px;
+        height: 50px;
+        border-radius: 15px;
+    }
+
+    .taxSwitch .cover {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: center;
+        position: absolute;  
+        width: 100%;
+    }
+
+    .taxSwitch .cover input{
+        box-shadow: none;
+        border-color: gray;
+        font-size: 1.3rem;
+    }
+    .taxSwitch .cover input:checked{
+        background-color: black;
+        box-shadow: none;
+    }
+    .taxSwitch .cover input:active{
+        color: red;
+    }
+
+    .taxSwitch .cover label {
+        margin-top: 5px;
+        margin-left: -15px;
+        padding-right: 10px;
+    }
+    

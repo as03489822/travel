@@ -1,0 +1,184 @@
+body{
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight:  weight;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content{
+    flex: 1;
+}
+
+.navbar-brand i {
+    font-size: 2rem;
+    color: #fe424d;
+}
+.navbar {
+    height: 5em;
+    background-color: white;    
+}
+
+.navbar-nav a {
+    color: black !important;
+}
+
+.collapse {
+    background-color: white !important;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ebebeb;
+}
+
+.social-icon i  {
+    margin-right: 1rem;
+    font-size: 1.2rem;
+}
+
+.social-icon ,.copyright ,.pages {
+    height: 2.3rem;
+    display: flex;
+    align-items: center;
+}
+
+.pages a{
+    text-decoration: none;
+    color: black;
+    margin-right: 0.5rem;
+}
+
+.content {
+    width: 100%;
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+.lisitng-card {
+    border: none;
+    margin-bottom: 1rem;
+}
+
+.card-img-top {
+    border-radius: 1rem  !important;
+    height: 20rem;
+    object-fit: cover;
+    width: 100%;
+}
+
+.card-body {
+    padding: 0px;
+}
+
+.card-body p {
+    font-weight: 400;
+}
+
+.listing-link {
+    text-decoration: none;
+    color: rgb(36, 36, 36);
+}
+
+.lisImage:hover{
+    opacity: 0.8;
+    background-color: rgb(0, 0, 0);
+}
+
+.lisBody p:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    border: none;
+    background-color: #fe424d;
+    padding: 5px 20px;
+}
+
+.btn:hover {
+    background-color:  #fe424d;
+    border-width: 3px;
+}
+
+.btn:active {
+    background-color:  #fe424d;
+    border-width: 3px;
+}
+
+.title h2{
+    margin-left: 10px;
+}
+
+.showCard{
+    border: none;
+    margin-bottom: 1rem;
+}
+
+.reviewCard{
+    border: none;
+}
+
+.rSCard{
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.showCard .card-body p {
+    margin-left: 10px;
+}
+
+.showButtons {
+    display:flex;
+    margin-left: 10px;
+}
+
+.showButtons form button {
+    margin-left: 20px;
+}
+
+.deleteBtn {
+    background-color: rgb(32, 32, 32);
+}
+
+.deleteBtn:hover{
+    background-color: rgb(49, 49, 49);
+}
+
+@media screen and (max-width: 480px) {
+    .content {
+        padding:0rem 2rem;
+    }
+  }
+
+.reviewBtn {
+    background-color: white;
+    border: 2px solid black;
+
+}
+
+.reviewBtn:hover{
+    background-color:rgb(49, 49, 49);
+    border:2px solid black;
+}
+
+
+.search input {
+    border-radius: 2rem;
+}
+.search input:hover{
+    box-shadow: none;
+    border-color: grey;
+}
+.search button{
+    border-radius: 2rem;
+    color: white;
+}
+
+.search button:hover {
+    color: white;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Category Data</title>
+    <style>
+        .category { margin-bottom: 20px; }
+        .item { margin-left: 20px; }
+    </style>
+</head>
+<body>
+
+<div id="data-container"></div>
+
+<script>
+    const data = [
+        { category: 'Fruits', name: 'Apple' },
+        { category: 'Fruits', name: 'Banana' },
+        { category: 'Vegetables', name: 'Carrot' },
+        { category: 'Vegetables', name: 'Broccoli' },
+    ];
+
+    const groupedData = data.reduce((acc, item) => {
+        if (!acc[item.category]) {
+            acc[item.category] = [];
+        }
+        acc[item.category].push(item.name);
+        return acc;
+    }, {});
+
+    const container = document.getElementById('data-container');
+
+    for (const category in groupedData) {
+        const categoryDiv = document.createElement('div');
+        categoryDiv.classList.add('category');
+        categoryDiv.innerHTML = `<h2>${category}</h2>`;
+        
+        groupedData[category].forEach(item => {
+            const itemDiv = document.createElement('div');
+            itemDiv.classList.add('item');
+            itemDiv.textContent = item;
+            categoryDiv.appendChild(itemDiv);
+        });
+
+        container.appendChild(categoryDiv);
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<% layout("/lalyouts/boilerplate") -%>
+<body>
+    <br>
+    <form action="/listing/new" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
+        <div class="row">
+            <div class="col col-12 col-md-8 offset-md-2">        
+                <h1>New  Listing</h1> <br>
+                <div class="mb-3">
+                    <label for="title" class="form-label"><b>Title</b></label>        
+                    <input type="text" name="listing[title]" id="title" placeholder="Enter catchy  name" class="form-control" required>
+                    <div class="invalid-feedback">enter your title</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label"><b>Description</b></label>
+                    <textarea name="listing[description]" id="description" placeholder="description" class="form-control" required></textarea>
+                    <div class="invalid-feedback">enter short description</div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-8 ">
+                        <div class="mb-3">
+                            <label for="image" class="form-label"><b>Listing Image</b></label>
+                            <input type="file" name="listing[image][url]" id="image"  class="form-control">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3 col-md-4">
+                        <label for="catgry" class="form-label"><b>Category</b></label>
+                        <select name="listing[category]"  class="form-select" id="catgry"  required>
+                            <option selected>Select category</option>
+                            <option  value="farm house">Farm house</option>
+                            <option  value="boat">Boat</option>
+                            <option  value="golfing">Golfing</option>
+                            <option  value="tower">Towers</option>
+                            <option  value="city">City</option>
+                            <option  value="arctic">Arctic</option>
+                            <option  value="pool">Pool</option>
+                            <option  value="beach">Beach</option>
+                            <option  value="hotel">Hotel</option>
+                            <option  value="cave">Cave</option>
+                            <option  value="room">Room</option>
+                            <option  value="mountain city">Mountain city</option>
+                          </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-4 ">
+                        <label for="price" class="form-label"><b>Price</b></label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa-sharp fa-solid fa-rupee-sign"></i></span>
+                            <input type="text" name="listing[price]" id="price" placeholder="enter the amount" class="form-control" required>
+                            <div class="invalid-feedback">enter amount please</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 col-md-8">
+                        <label for="country" form="label" class="form-label"><b>Country</b></label>        
+                        <input type="text" name="listing[country]" id="country" placeholder="country" class="form-control" required>
+                        <div class="invalid-feedback">enter correct country name</div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="location" class="form-label"><b>Location</b></label>
+                    <input type="text" name="listing[location]" id="location" placeholder="location" class="form-control" required>
+                    <div class="invalid-feedback">enter correct location</div>
+                </div>
+
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-danger">Add</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <br>
+</body>
