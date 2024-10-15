@@ -29,7 +29,7 @@ app.use(express.urlencoded({extended : true}));
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname,"public")))
 
-let mongodbUrl = process.env.ATLASDB_URL
+
 
 main().then(() => {
     console.log("database connected");
@@ -40,19 +40,23 @@ main().then(() => {
 // }
 
 async function main(){
-    await mongoose.connect(mongodbUrl)
+    await mongoose.connect(process.env.ATLASDB_URL)
 }
 
 let store = MongoStore.create({
-    mongoUrl : mongodbUrl,
+    mongoUrl : process.env.ATLASDB_URL,
     crypto : {
         secret :process.env.SECRET
     },
     touchAfter : 24 * 3600,
 })
 
+store.on("error" , () => {
+    console.log("error in mongo session store")
+})
+
 const sessionOption ={
-    // store,
+    store,
     secret:process.env.SECRET,
     resave:false,
     saveUninitialized:true,
