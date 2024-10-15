@@ -85,7 +85,7 @@ app.use((req ,res ,next) => {
     next()
 })
 
-app.get("/" ,(req ,res) => {
+app.get("/" ,async(req ,res) => {
         const allListing = await Listing.find();
     res.render("listing/listing.ejs" ,{allListing});
 })
