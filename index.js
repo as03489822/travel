@@ -86,7 +86,8 @@ app.use((req ,res ,next) => {
 })
 
 app.get("/" ,(req ,res) => {
-    res.send("<h1>Enter &nbsp;&nbsp;&nbsp;&nbsp;   http://localhost:8080/listing</h1>")
+        const allListing = await Listing.find();
+    res.render("listing/listing.ejs" ,{allListing});
 })
 
 app.use("/listing" , listingsRoutes);
