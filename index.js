@@ -13,7 +13,7 @@ const ExpressError = require("./Errors/ExpressError.js");
 const listingsRoutes = require("./routes/listings.js")
 const reviewsRoutes = require("./routes/reviews.js");
 const userRoutes = require("./routes/user.js")
-const Listing = require("../models/listing.js");
+const Listing = require("./models/listing.js");
 
 let session = require("express-session");
 const MongoStore = require('connect-mongo');
