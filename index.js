@@ -41,7 +41,7 @@ main().then(() => {
 // }
 
 async function main(){
-    await mongoose.connect(process.env.ATLASDB_URL , {useNewUrlParser: true})
+    await mongoose.connect(process.env.ATLASDB_URL )
 }
 
 let store = MongoStore.create({
