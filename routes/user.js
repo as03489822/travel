@@ -32,19 +32,33 @@ router.get("/login" , (req , res) => {
 })
 
 router.post(
-    "/login",
-    saveRedirectUrl,
-    passport.authenticate("local", {
-        failureRedirect: "/login",
-        failureFlash: true,
-    }),
-    (req , res) => {
-        req.flash("success" , "welcome back to Travels");
-        if(res.locals.saveUrl){
-        res.redirect(res.locals.saveUrl);
-        }else{
-        res.redirect("/listing");
-        }
+    // "/login",
+    // saveRedirectUrl,
+    // passport.authenticate("local", {
+    //     failureRedirect: "/login",
+    //     failureFlash: true,
+    // }),
+    // (req , res) => {
+    //     req.flash("success" , "welcome back to Travels");
+    //     if(res.locals.saveUrl){
+    //     res.redirect(res.locals.saveUrl);
+    //     }else{
+    //     res.redirect("/listing");
+    //     }
+        try{
+        let {username = "hello" , email , password} = req.body;
+        let newUser = new User({username, email});
+        let data = await User.register(newUser , password);
+        console.log(data)
+        req.login(data, function(err) {
+            if (err) { return next(err); }
+            req.flash("success" , " Welcome to Travels")
+            res.redirect('/listing');
+          });
+    }catch(er){
+        req.flash("error" , er.message);
+        res.redirect("/signup")
+    }
 })
 
 router.get("/logout" , (req ,res ,next) => {
