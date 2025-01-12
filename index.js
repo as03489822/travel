@@ -19,9 +19,9 @@ let session = require("express-session");
 const MongoStore = require('connect-mongo');
 let flash = require('connect-flash');
 
-// const passport = require("passport");
-// const LocalStrtegie = require("passport-local");
-// const User = require("./models/user.js");
+const passport = require("passport");
+const LocalStrtegie = require("passport-local");
+const User = require("./models/user.js");
 
 app.engine('ejs' , engine);
 app.set("view engin", "ejs");
@@ -73,11 +73,11 @@ const sessionOption ={
 app.use(session(sessionOption));
 app.use(flash());
 
-// app.use(passport.initialize());
-// app.use(passport.session());
-// passport.use(new LocalStrtegie(User.authenticate()));
-// passport.serializeUser(User.serializeUser());
-// passport.deserializeUser(User.deserializeUser());
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrtegie(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 app.use((req ,res ,next) => {
     res.locals.success = req.flash("success");
