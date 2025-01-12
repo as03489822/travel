@@ -14,8 +14,9 @@ router.post("/signup" ,asyncWrap (async(req , res) => {
     try{
         let {username , email , password} = req.body;
         let newUser = new User({username, email});
-        let data = await User.register(newUser , password);
-        console.log(data)
+        newUser.save()
+        // let data = await User.register(newUser , password);
+        // console.log(data)
         req.login(data, function(err) {
             if (err) { return next(err); }
             req.flash("success" , " Welcome to Travels")
