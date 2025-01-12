@@ -17,12 +17,8 @@ router.post("/signup" ,asyncWrap (async(req , res) => {
         let newUser = new User({username, email, password});
                 console.log(newUser)
         newUser.save();
-        // let data = await User.register(newUser , password);
-        req.login(data, function(err) {
-            if (err) { return next(err); }
             req.flash("success" , " Welcome to Travels")
             res.redirect('/listing');
-          });
     }catch(er){
         req.flash("error" , er.message);
         res.redirect("/signup")
