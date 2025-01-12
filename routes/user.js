@@ -15,14 +15,15 @@ router.post("/signup" ,asyncWrap (async(req , res) => {
         let {username , email , password} = req.body;
         console.log(username , email , password)
         
-        // console.log(newUser)
-        // let newUser = new User({username, email, password});
+
+        let newUser = new User({username, email, password});
+                // console.log(newUser)
         // let data = await User.register(newUser , password);
-        // req.login(data, function(err) {
-        //     if (err) { return next(err); }
-        //     req.flash("success" , " Welcome to Travels")
-        //     res.redirect('/listing');
-        //   });
+        req.login(data, function(err) {
+            if (err) { return next(err); }
+            req.flash("success" , " Welcome to Travels")
+            res.redirect('/listing');
+          });
     }catch(er){
         req.flash("error" , er.message);
         res.redirect("/signup")
