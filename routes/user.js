@@ -13,6 +13,11 @@ router.get("/signup" , (req ,res) => {
 router.post("/signup" ,asyncWrap (async(req , res) => {
     try{
         let {username , email , password} = req.body;
+        let existingUser = await User.findOne({ username });
+        if (existingUser) {
+            req.flash("error", "Username already taken. Please choose another one.");
+            return res.redirect("/signup");
+        }
         console.log(username , email , password)
         let newUser = new User({username, email, password});
                 console.log(newUser)
